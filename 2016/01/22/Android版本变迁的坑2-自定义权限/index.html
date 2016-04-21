@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android版本变迁的坑2--自定义权限 | CrossRun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android中可以通过实现自定义权限，来控制自己的某个开放接口的使用权限，在5.0之前，是没有什么限制的，但是在5.0及upper，自定义权限需要同一个签名。  
+
+A提供了一个SDK，有自定义权限 P-A；  
+B引用了SDK，申明了自定义权限 P-A；  
+C引用了SDK，申明了自定义权限 P-A；   
+
+在5.0及upper，B和C需要同一个签名才能正常使用，否则会造成另一方应用无法安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android版本变迁的坑2--自定义权限">
+<meta property="og:url" content="http://crossrun.top/2016/01/22/Android版本变迁的坑2-自定义权限/index.html">
+<meta property="og:site_name" content="CrossRun">
+<meta property="og:description" content="Android中可以通过实现自定义权限，来控制自己的某个开放接口的使用权限，在5.0之前，是没有什么限制的，但是在5.0及upper，自定义权限需要同一个签名。  
+
+A提供了一个SDK，有自定义权限 P-A；  
+B引用了SDK，申明了自定义权限 P-A；  
+C引用了SDK，申明了自定义权限 P-A；   
+
+在5.0及upper，B和C需要同一个签名才能正常使用，否则会造成另一方应用无法安装">
+<meta property="og:updated_time" content="2016-01-22T06:42:01.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android版本变迁的坑2--自定义权限">
+<meta name="twitter:description" content="Android中可以通过实现自定义权限，来控制自己的某个开放接口的使用权限，在5.0之前，是没有什么限制的，但是在5.0及upper，自定义权限需要同一个签名。  
+
+A提供了一个SDK，有自定义权限 P-A；  
+B引用了SDK，申明了自定义权限 P-A；  
+C引用了SDK，申明了自定义权限 P-A；   
+
+在5.0及upper，B和C需要同一个签名才能正常使用，否则会造成另一方应用无法安装">
+  
+    <link rel="alternate" href="/atom.xml" title="CrossRun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CrossRun</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">谁与我大梦一场</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://crossrun.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android版本变迁的坑2-自定义权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/22/Android版本变迁的坑2-自定义权限/" class="article-date">
+  <time datetime="2016-01-22T06:12:33.000Z" itemprop="datePublished">2016-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android版本变迁的坑2--自定义权限
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android中可以通过实现自定义权限，来控制自己的某个开放接口的使用权限，在5.0之前，是没有什么限制的，但是在5.0及upper，自定义权限需要同一个签名。  </p>
+<ol>
+<li>A提供了一个SDK，有自定义权限 P-A；  </li>
+<li>B引用了SDK，申明了自定义权限 P-A；  </li>
+<li>C引用了SDK，申明了自定义权限 P-A；   </li>
+</ol>
+<p>在5.0及upper，B和C需要<strong>同一个签名</strong>才能正常使用，否则会造成另一方应用<strong>无法安装、使用崩溃</strong>等情况发生。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;permission android:description=&quot;string resource&quot;  </span><br><span class="line">            android:icon=&quot;drawable resource&quot;  </span><br><span class="line">            android:label=&quot;string resource&quot;  </span><br><span class="line">            android:name=&quot;com.xxx.permission&quot;  </span><br><span class="line">            android:permissionGroup=&quot;string&quot;  </span><br><span class="line">            android:protectionLevel=[&quot;normal&quot; | &quot;dangerous&quot; |   </span><br><span class="line">                                     &quot;signature&quot; | &quot;signatureOrSystem&quot;] /&gt;</span><br></pre></td></tr></table></figure>
+<p>android:description :对权限的描述，一般是两句话，第一句话描述这个权限所针对的操作，第二句话告诉用户授予app这个权限会带来的后果<br>android:label: 对权限的一个简短描述<br>android:name :权限的唯一标识，一般都是使用 报名加权限名<br>android:permissionGroup: 权限所属权限组的名称<br>android:protectionLevel: 权限的等级<br>normal 是最低的等级，声明次权限的app，系统会默认授予次权限，不会提示用户<br>dangerous  权限对应的操作有安全风险，系统在安装声明此类权限的app时会提示用户<br>signature  权限表明的操作只针对使用同一个证书签名的app开放<br>signatureOrSystem  与signature类似，只是增加了rom中自带的app的声明  </p>
+<p>使用的话就是<code>&lt;uses-permission android:name=&quot;com.xxx.permission&quot; /&gt;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://crossrun.top/2016/01/22/Android版本变迁的坑2-自定义权限/" data-id="cin9xg6xp000i2oxadg2b73ht" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android版本变迁的坑/">Android版本变迁的坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/22/Android版本变迁的坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android版本变迁的坑
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/22/Android版本变迁的坑1-自定义属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android版本变迁的坑1--自定义属性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-框架/">Android 框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Universal-Image-Loader-ImageLoader/">Android-Universal-Image-Loader,ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android版本变迁的坑/">Android版本变迁的坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-java-static/">java,java-static</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/锋芒/">锋芒</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-框架/" style="font-size: 10px;">Android 框架</a> <a href="/tags/Android-Universal-Image-Loader-ImageLoader/" style="font-size: 10px;">Android-Universal-Image-Loader,ImageLoader</a> <a href="/tags/Android版本变迁的坑/" style="font-size: 15px;">Android版本变迁的坑</a> <a href="/tags/java-java-static/" style="font-size: 10px;">java,java-static</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/test/" style="font-size: 15px;">test</a> <a href="/tags/锋芒/" style="font-size: 10px;">锋芒</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/21/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/13/锋芒社第一次会议-立社谈/">锋芒社第一次会议-立社谈</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/22/Android版本变迁的坑/">Android版本变迁的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/22/Android版本变迁的坑2-自定义权限/">Android版本变迁的坑2--自定义权限</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/22/Android版本变迁的坑1-自定义属性/">Android版本变迁的坑1--自定义属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 CrossRun<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
