@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2015-07-06T06:03:05.236Z</updated>
+  <updated>2016-06-06T08:57:53.563Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android源码设计模式-读书笔记001</title>
+    <link href="http://crossrun.top/2016/06/06/Android-Source-Design-pattern-001/"/>
+    <id>http://crossrun.top/2016/06/06/Android-Source-Design-pattern-001/</id>
+    <published>2016-06-06T08:13:35.000Z</published>
+    <updated>2016-06-06T08:57:53.563Z</updated>
+    
+    <content type="html">&lt;p&gt;第一章描述了面向对象六大的原则，平时有用到一些，没有想过总结之类的，并不是强求必须符合，但是具有很高的指导意义。&lt;/p&gt;
+&lt;h2 id=&quot;单一&quot;&gt;&lt;a href=&quot;#单一&quot; class=&quot;headerlink&quot; title=&quot;单一&quot;&gt;&lt;/a&gt;单一&lt;/h2&gt;&lt;p&gt;  每个对象应该只专注于一个功能，以文中加载图片工具为例，可分为&lt;code&gt;缓存+显示图片&lt;/code&gt;两个功能模块，应该分成两个不同的类&lt;/p&gt;
+&lt;h2 id=&quot;开闭&quot;&gt;&lt;a href=&quot;#开闭&quot; class=&quot;headerlink&quot; title=&quot;开闭&quot;&gt;&lt;/a&gt;开闭&lt;/h2&gt;&lt;p&gt;  尽量对修改关闭，对扩展开放。很有意义的一个原则。上个例子中的 &lt;code&gt;缓存&lt;/code&gt; 根据需求可以有 &lt;code&gt;内存缓存&lt;/code&gt; &lt;code&gt;SD卡缓存&lt;/code&gt; &lt;code&gt;两个同时缓存&lt;/code&gt;三种模式。当缓存有新的需求，添加新的缓存逻辑。正是由于&lt;code&gt;缓存+显示图片&lt;/code&gt;两个功能分开，更能体现出开闭原则，这里 抽象 便是一个重要的思想了，将 &lt;code&gt;缓存&lt;/code&gt;抽象出一个接口，三种模式均实现接口，借此完成对修改关闭，对扩展开放,若有新的需求，实现接口，完成自己的新的细节。&lt;/p&gt;
+&lt;h2 id=&quot;里氏替换&quot;&gt;&lt;a href=&quot;#里氏替换&quot; class=&quot;headerlink&quot; title=&quot;里氏替换&quot;&gt;&lt;/a&gt;里氏替换&lt;/h2&gt;&lt;p&gt;  有点饶人的原则，大意便是，使用基类的地方，子类可以随意替换而不对程序造成危害，但是反过来不一定了。&lt;/p&gt;
+&lt;h2 id=&quot;依赖翻转&quot;&gt;&lt;a href=&quot;#依赖翻转&quot; class=&quot;headerlink&quot; title=&quot;依赖翻转&quot;&gt;&lt;/a&gt;依赖翻转&lt;/h2&gt;&lt;p&gt;  1.上层不依赖下层&lt;br&gt;  2.抽象不依赖细节&lt;br&gt;  3.细节依赖抽象。&lt;br&gt;  抽象是接口或者抽象类，细节是具体的实现类。其中心思想是通过接口通信，而不是类之间耦合。开闭原则实现的一个重要手段便是抽象，此处实现方式类似。&lt;/p&gt;
+&lt;h2 id=&quot;接口隔离&quot;&gt;&lt;a href=&quot;#接口隔离&quot; class=&quot;headerlink&quot; title=&quot;接口隔离&quot;&gt;&lt;/a&gt;接口隔离&lt;/h2&gt;&lt;p&gt;  对于抽象出来的接口，应该尽可能的小，类之间的以来关系建立在最小的接口上。比如 飞机可以飞，鸟也可以飞，飞的实现细节不一致，但是需要的只是飞，那么设计接口的时候，只需要 fei 一个接口，不应当关心是鸟还是飞机。&lt;/p&gt;
+&lt;h2 id=&quot;迪米特原则&quot;&gt;&lt;a href=&quot;#迪米特原则&quot; class=&quot;headerlink&quot; title=&quot;迪米特原则&quot;&gt;&lt;/a&gt;迪米特原则&lt;/h2&gt;&lt;p&gt;  接口隔离针对的是接口，那么迪米特原则针对的便是类。也是最小化思想，解耦。突然想到了 Golang 里的 channel 读写可以分离，也是类似的思想。&lt;/p&gt;
+&lt;p&gt;总结以上六个原则，不是为了背，融入编程的本能以及结合具体的环境，对项目真正有帮助才是王道。不过既然是面对像，离不开 封装、继承、多态，抽象的好坏是及其重要的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一章描述了面向对象六大的原则，平时有用到一些，没有想过总结之类的，并不是强求必须符合，但是具有很高的指导意义。&lt;/p&gt;
+&lt;h2 id=&quot;单一&quot;&gt;&lt;a href=&quot;#单一&quot; class=&quot;headerlink&quot; title=&quot;单一&quot;&gt;&lt;/a&gt;单一&lt;/h2&gt;&lt;p&gt;  每个对象
+    
+    </summary>
+    
+    
+      <category term="Android-Source-Design-pattern" scheme="http://crossrun.top/tags/Android-Source-Design-pattern/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
