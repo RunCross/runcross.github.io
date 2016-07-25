@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2016-07-25T08:19:02.066Z</updated>
+  <updated>2016-07-25T08:19:57.890Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -16,22 +16,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android源码设计模式-读书笔记002-Builder模式</title>
+    <title>Android源码设计模式-读书笔记003-Builder模式</title>
     <link href="http://crossrun.top/2016/07/25/Android-Source-Design-pattern-003/"/>
     <id>http://crossrun.top/2016/07/25/Android-Source-Design-pattern-003/</id>
     <published>2016-07-25T06:51:11.000Z</published>
-    <updated>2016-07-25T08:19:02.066Z</updated>
+    <updated>2016-07-25T08:19:57.890Z</updated>
     
-    <content type="html">&lt;pre&gt;&lt;code&gt;说起Builder模式，就是一点点的输入要素从而创建一个完整的对象。最经典的应该是 `AlertDialog` 里的`Builder`。简单说起来，就是一步步的`set`方法整合到一起，也是想要屏蔽细节的一种思想。值得一提的是，往往每一步`set`都会返回自身，形成一个链式调用。
-引用书上的一段话：
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;1.相同的方法，不同的执行顺序，产生不同的事件结果时。&lt;br&gt;2.多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同时。&lt;br&gt;3.产品类非常复杂，或者产品类中的调用顺序不同产生了不同的作用，这个时候使用Builder模式非常合适。&lt;br&gt;4.当初始化一个对象特别复，如参数多，且很多参数有默认值时。&lt;/p&gt;
+    <content type="html">&lt;p&gt;说起Builder模式，就是一点点的输入要素从而创建一个完整的对象。最经典的应该是 &lt;code&gt;AlertDialog&lt;/code&gt; 里的&lt;code&gt;Builder&lt;/code&gt;。简单说起来，就是一步步的&lt;code&gt;set&lt;/code&gt;方法整合到一起，也是想要屏蔽细节的一种思想。值得一提的是，往往每一步&lt;code&gt;set&lt;/code&gt;都会返回自身，形成一个链式调用。&lt;br&gt;    引用书上的一段话：&lt;br&gt;1.相同的方法，不同的执行顺序，产生不同的事件结果时。&lt;br&gt;2.多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同时。&lt;br&gt;3.产品类非常复杂，或者产品类中的调用顺序不同产生了不同的作用，这个时候使用Builder模式非常合适。&lt;br&gt;4.当初始化一个对象特别复，如参数多，且很多参数有默认值时。&lt;/p&gt;
 &lt;p&gt;总结起来，一个是初始化的&lt;em&gt;顺序&lt;/em&gt;，一个初始化的&lt;em&gt;参数多&lt;/em&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;AlertDialog&lt;/code&gt;中持有一个 &lt;code&gt;mAlert = new AlertController&lt;/code&gt; ，Builder里有一个 &lt;code&gt;p = new AlertController.AlertParams&lt;/code&gt; ，在buidler的时候，填充入&lt;code&gt;p&lt;/code&gt;的值，然后在&lt;code&gt;create()&lt;/code&gt;方法里，创建一个&lt;code&gt;AlertDialog&lt;/code&gt;，同时 &lt;code&gt;p.apply(dialog.mAlert)&lt;/code&gt; 把填充的属性应用到创建的&lt;code&gt;AlertDialog&lt;/code&gt;，完成一个创建流程。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;pre&gt;&lt;code&gt;说起Builder模式，就是一点点的输入要素从而创建一个完整的对象。最经典的应该是 `AlertDialog` 里的`Builder`。简单说起来，就是一步步的`set`方法整合到一起，也是想要屏蔽细节的一种思想。值得一提的是，往往每一步`set`都会返回自
+      &lt;p&gt;说起Builder模式，就是一点点的输入要素从而创建一个完整的对象。最经典的应该是 &lt;code&gt;AlertDialog&lt;/code&gt; 里的&lt;code&gt;Builder&lt;/code&gt;。简单说起来，就是一步步的&lt;code&gt;set&lt;/code&gt;方法整合到一起，也是想要屏蔽细节的一种
     
     </summary>
     
