@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2016-09-09T02:21:08.403Z</updated>
+  <updated>2016-10-10T02:56:22.299Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android全屏和非全屏切换造成的界面下移</title>
+    <link href="http://crossrun.top/2016/10/10/Android-FullScreen/"/>
+    <id>http://crossrun.top/2016/10/10/Android-FullScreen/</id>
+    <published>2016-10-10T02:43:47.000Z</published>
+    <updated>2016-10-10T02:56:22.299Z</updated>
+    
+    <content type="html">&lt;p&gt;在Android中，一般会有首页的Flash页面是全屏的一个图片，然后跳转到App真正的内容，这时候就不是全屏了。然而跳转过去以后，会发现，非全屏的那个界面会有一个界面下移的动画，高度大概是一个statusbar。只需要在&lt;code&gt;FlashActivity&lt;/code&gt;跳转到&lt;code&gt;MainActivity&lt;/code&gt;的地方，设置一下&lt;code&gt;Window&lt;/code&gt;的&lt;code&gt;Flags&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;无ActionBar的style&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;style name=&amp;quot;AppTheme&amp;quot; parent=&amp;quot;Theme.AppCompat.NoActionBar&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;!-- Customize your theme here. --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;item name=&amp;quot;colorPrimary&amp;quot;&amp;gt;@color/colorPrimary&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;item name=&amp;quot;colorPrimaryDark&amp;quot;&amp;gt;@color/colorAllBg&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;item name=&amp;quot;colorAccent&amp;quot;&amp;gt;@color/colorAccent&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在Flash页面，可以style设置全屏，也可以代码设置全屏，都一样&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--设置-全屏--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;style name=&amp;quot;NoTitleFullscreen&amp;quot; parent=&amp;quot;AppTheme&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;item name=&amp;quot;android:windowNoTitle&amp;quot;&amp;gt;true&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;item name=&amp;quot;windowActionBar&amp;quot;&amp;gt;false&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;item name=&amp;quot;android:windowFullscreen&amp;quot;&amp;gt;true&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;item name=&amp;quot;android:windowContentOverlay&amp;quot;&amp;gt;@null&amp;lt;/item&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   super.onCreate(savedInstanceState);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   setContentView(R.layout.activity_flash);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意重点，这里跳转到MainActivity的地方：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//全屏和非全屏之间切换的时候&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//防止非全屏出现界面下移&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Intent intent = new Intent(this, MainActivity.class);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;startActivity(intent);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;finish();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;跳转前添加&lt;code&gt;getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);&lt;/code&gt;即可，有的机型或者SDK版本，也可以换成&lt;code&gt;getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Android中，一般会有首页的Flash页面是全屏的一个图片，然后跳转到App真正的内容，这时候就不是全屏了。然而跳转过去以后，会发现，非全屏的那个界面会有一个界面下移的动画，高度大概是一个statusbar。只需要在&lt;code&gt;FlashActivity&lt;/code&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://crossrun.top/2016/10/10/test/"/>
+    <id>http://crossrun.top/2016/10/10/test/</id>
+    <published>2016-10-10T02:31:38.000Z</published>
+    <updated>2016-10-10T02:31:38.724Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Gradle简单配置</title>
@@ -517,43 +560,6 @@ blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Android低版本实现Material-Design</title>
-    <link href="http://crossrun.top/2015/07/24/Android%E4%BD%8E%E7%89%88%E6%9C%AC%E5%AE%9E%E7%8E%B0Material-Design/"/>
-    <id>http://crossrun.top/2015/07/24/Android低版本实现Material-Design/</id>
-    <published>2015-07-24T09:27:06.000Z</published>
-    <updated>2015-07-24T09:27:06.829Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android-Universal-Image-Loader-图片异步加载类库的使用（超详细配置）</title>
-    <link href="http://crossrun.top/2015/07/16/Android-Universal-Image-Loader-%E5%9B%BE%E7%89%87%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E7%B1%BB%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%EF%BC%89/"/>
-    <id>http://crossrun.top/2015/07/16/Android-Universal-Image-Loader-图片异步加载类库的使用（超详细配置）/</id>
-    <published>2015-07-16T09:36:27.000Z</published>
-    <updated>2015-07-16T09:37:32.150Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/vipzjyno1/article/details/23206387&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android-Universal-Image-Loader 图片异步加载类库的使用（超详细配置）&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/vipzjyno1/article/details/23206387&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android-Universal-Image-Loader 图片异步加载类库的
-    
-    </summary>
-    
-    
-      <category term="Android-Universal-Image-Loader,ImageLoader" scheme="http://crossrun.top/tags/Android-Universal-Image-Loader-ImageLoader/"/>
     
   </entry>
   
