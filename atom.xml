@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2016-10-10T03:00:17.066Z</updated>
+  <updated>2016-10-25T07:53:51.309Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android-studio-Manifest-merger-failed-with-multiple-errors</title>
+    <link href="http://crossrun.top/2016/10/25/Android-studio-Manifest-merger-failed-with-multiple-errors/"/>
+    <id>http://crossrun.top/2016/10/25/Android-studio-Manifest-merger-failed-with-multiple-errors/</id>
+    <published>2016-10-25T07:45:52.000Z</published>
+    <updated>2016-10-25T07:53:51.309Z</updated>
+    
+    <content type="html">&lt;p&gt;最近在导入项目的时候遇到一个错误 &lt;code&gt;Manifest merger failed with multiple errors, see logs&lt;/code&gt; 各种搜索解决方法，有的：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;在Manifest.xml的application标签下添加tools:replace=&amp;quot;icon,theme,label&amp;quot;（多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=&amp;quot;http://schemas.android.com/tools&amp;quot;，否则会找不到namespace哦）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;上述方法无用，顺便议题，有两个版本 &lt;code&gt;tools:replace=&amp;quot;android:icon,android:theme,android:label&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;在build.gradle根标签上加上useOldManifestMerger true （懒人方法）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个方法我尝试了半天，总是提示 没有 &lt;code&gt;gradle根标签上加上useOldManifestMerger&lt;/code&gt; 这个方法，顺便 &lt;a href=&quot;http://tools.android.com/tech-docs/new-build-system/user-guide/manifest-merger&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方的有关说明&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个错误主要是你的主项目和导入的Lib有某个属性冲突，后来我终于找到了，我的主项目 &lt;code&gt;minsdk = 8&lt;/code&gt; 导入的项目 是 &lt;code&gt;minsdk=9&lt;/code&gt; 把我的主项目改成 9 就行了。&lt;br&gt;Android studio 的 Gradle 这点很不友好，都不提示具体是哪个属性冲突。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在导入项目的时候遇到一个错误 &lt;code&gt;Manifest merger failed with multiple errors, see logs&lt;/code&gt; 各种搜索解决方法，有的：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+    
+    </summary>
+    
+    
+      <category term="Android-studio" scheme="http://crossrun.top/tags/Android-studio/"/>
+    
+  </entry>
   
   <entry>
     <title>Android全屏和非全屏切换造成的界面下移</title>
@@ -538,22 +563,6 @@ blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
     <id>http://crossrun.top/2015/08/10/Android使用addview-添加View导致View无法正常显示/</id>
     <published>2015-08-10T06:38:32.000Z</published>
     <updated>2015-08-10T06:38:32.560Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android里ListView或者ScrollView的向下事件传递小技巧</title>
-    <link href="http://crossrun.top/2015/07/28/Android%E9%87%8CListView%E6%88%96%E8%80%85ScrollView%E7%9A%84%E5%90%91%E4%B8%8B%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>http://crossrun.top/2015/07/28/Android里ListView或者ScrollView的向下事件传递小技巧/</id>
-    <published>2015-07-28T02:38:52.000Z</published>
-    <updated>2015-07-28T02:38:52.394Z</updated>
     
     <content type="html"></content>
     
