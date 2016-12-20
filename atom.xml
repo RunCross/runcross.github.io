@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2016-10-25T07:55:15.285Z</updated>
+  <updated>2016-12-20T11:40:26.535Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android编译的时候mergeDebugResources</title>
+    <link href="http://crossrun.top/2016/12/20/Android-gradle-png/"/>
+    <id>http://crossrun.top/2016/12/20/Android-gradle-png/</id>
+    <published>2016-12-20T11:35:43.000Z</published>
+    <updated>2016-12-20T11:40:26.535Z</updated>
+    
+    <content type="html">&lt;p&gt;有的时候，你发现项目里添加了几张图片就是编译失败，很有可能是图片格式不对，AS对PNG图片的检查比较严格，最根本的的方法就是找美工重新作图，要是来不及呢，或者找不到到底那几张图祸害了整个项目，可以临时用下面的方法，禁止检查。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;buildToolsVersion &amp;quot;25.0.1&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;aaptOptions.cruncherEnabled = false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;aaptOptions.useNewCruncher = false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;buildToolsVersion&lt;/code&gt; 只是为了表明位置，具体看你项目，主要是下面的两句。&lt;br&gt;如果加了仍然报错，那就是其他错误，需要慢慢找了，AS有些地方确实不好配。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有的时候，你发现项目里添加了几张图片就是编译失败，很有可能是图片格式不对，AS对PNG图片的检查比较严格，最根本的的方法就是找美工重新作图，要是来不及呢，或者找不到到底那几张图祸害了整个项目，可以临时用下面的方法，禁止检查。&lt;br&gt;&lt;figure class=&quot;highli
+    
+    </summary>
+    
+    
+      <category term="Android-studio" scheme="http://crossrun.top/tags/Android-studio/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-studio-Manifest-merger-failed-with-multiple-errors</title>
@@ -554,22 +576,6 @@ blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
     
     
       <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android使用addview()添加View导致View无法正常显示</title>
-    <link href="http://crossrun.top/2015/08/10/Android%E4%BD%BF%E7%94%A8addview-%E6%B7%BB%E5%8A%A0View%E5%AF%BC%E8%87%B4View%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA/"/>
-    <id>http://crossrun.top/2015/08/10/Android使用addview-添加View导致View无法正常显示/</id>
-    <published>2015-08-10T06:38:32.000Z</published>
-    <updated>2015-08-10T06:38:32.560Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
