@@ -16,6 +16,18 @@
 			    	document.write(result);
 			    }
 			);
+        document.addEventListener("deviceready", onDeviceReady, false); //等待cordova加载 
+//cordova加载完成
+function onDeviceReady() { 
+  //如果需要页面加载完成后，就调用平台的API，必须加在此处。加在onload里面不行。
+MXCommon.getCurrentUser(
+                function(result){
+                    //这里可以处理获取到的当前用户数据
+                    
+                    document.write(result);
+                }
+            );
+} 
     </script>
 </head>
 <body>
