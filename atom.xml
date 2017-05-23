@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2016-12-20T11:40:26.535Z</updated>
+  <updated>2017-05-23T04:45:59.267Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Viewpager-ImageView-ImageLoader使用中OOM或者内存莫名其妙过大</title>
+    <link href="http://crossrun.top/2017/05/23/Viewpager-ImageView-ImageLoader/"/>
+    <id>http://crossrun.top/2017/05/23/Viewpager-ImageView-ImageLoader/</id>
+    <published>2017-05-23T04:41:15.000Z</published>
+    <updated>2017-05-23T04:45:59.267Z</updated>
+    
+    <content type="html">&lt;p&gt;在使用ViewPager+ImangeView+ImageLoader组合完成功能引导页的时候，经常出现OOM或者卡顿现象，后来发现，有&lt;code&gt;ImageLoader.getInstance().cancelDisplayTask(ImageView);&lt;/code&gt;这个方法，在&lt;code&gt;adapter&lt;/code&gt;的 &lt;code&gt;public void destroyItem()&lt;/code&gt; 中添加上述语句，可以大幅改善内存占用情况，同理Glide也有一个&lt;code&gt;Glide.clear()&lt;/code&gt;方法值得注意&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用ViewPager+ImangeView+ImageLoader组合完成功能引导页的时候，经常出现OOM或者卡顿现象，后来发现，有&lt;code&gt;ImageLoader.getInstance().cancelDisplayTask(ImageView);&lt;/code&gt;这
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android编译的时候mergeDebugResources</title>
@@ -550,32 +571,6 @@ blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Android中原样获取strings.xml里的字符串</title>
-    <link href="http://crossrun.top/2015/08/13/Android%E4%B8%AD%E5%8E%9F%E6%A0%B7%E8%8E%B7%E5%8F%96strings-xml%E9%87%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://crossrun.top/2015/08/13/Android中原样获取strings-xml里的字符串/</id>
-    <published>2015-08-13T01:53:59.000Z</published>
-    <updated>2015-08-17T07:59:02.184Z</updated>
-    
-    <content type="html">&lt;p&gt;getText,getString&lt;br&gt;cdata&lt;br&gt;Multiple annotations found at this line:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- error: Multiple substitutions specified in non-positional format; did you mean to add the formatted=&amp;quot;false&amp;quot; 
- attribute?
-- error: Unexpected end tag string
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;strings.xml格式化占位符错误&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;getText,getString&lt;br&gt;cdata&lt;br&gt;Multiple annotations found at this line:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- error: Multiple substitutions specified in non-po
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
     
   </entry>
   
