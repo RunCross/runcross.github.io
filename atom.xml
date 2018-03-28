@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2017-05-23T04:45:59.267Z</updated>
+  <updated>2018-03-28T05:44:56.840Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android唤起应用-urlscheme</title>
+    <link href="http://crossrun.top/2018/03/28/Android%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8-urlscheme/"/>
+    <id>http://crossrun.top/2018/03/28/Android唤起应用-urlscheme/</id>
+    <published>2018-03-28T05:42:18.000Z</published>
+    <updated>2018-03-28T05:44:56.840Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;code&gt;WebView.shouldOverrideUrlLoading&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;类似于这样的处理一下，才能正常唤起&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@Override
+        public boolean shouldOverrideUrlLoading (WebView view, String url) {
+            // Toast.makeText(WebViewActivity.this, url, Toast.LENGTH_LONG).show();
+            AppLog.e(url);
+           if ( url.startsWith(&amp;quot;http&amp;quot;) || url.startsWith(&amp;quot;https&amp;quot;) || url.startsWith(&amp;quot;file&amp;quot;) || url.startsWith(&amp;quot;wvjbscheme&amp;quot;) ) {
+                return super.shouldOverrideUrlLoading(view, url);
+            } else {
+                try {
+                    Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(in);
+                } catch (Exception e) {
+                }
+                return true;
+            }
+        }&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;WebView.shouldOverrideUrlLoading&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;类似于这样的处理一下，才能正常唤起&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@Override
+        public boolean shouldOverrideUrlLoa
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Viewpager-ImageView-ImageLoader使用中OOM或者内存莫名其妙过大</title>
@@ -555,22 +595,6 @@ blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
     
     
       <category term="Android" scheme="http://crossrun.top/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android里Dialog全屏背景变暗自定义Dialog背景颜色</title>
-    <link href="http://crossrun.top/2015/08/28/Android%E9%87%8CDialog%E5%85%A8%E5%B1%8F%E8%83%8C%E6%99%AF%E5%8F%98%E6%9A%97%E8%87%AA%E5%AE%9A%E4%B9%89Dialog%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/"/>
-    <id>http://crossrun.top/2015/08/28/Android里Dialog全屏背景变暗自定义Dialog背景颜色/</id>
-    <published>2015-08-28T07:38:01.000Z</published>
-    <updated>2015-08-28T07:38:01.424Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
