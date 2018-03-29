@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crossrun.top/"/>
-  <updated>2018-03-29T02:08:56.558Z</updated>
+  <updated>2018-03-29T02:10:18.147Z</updated>
   <id>http://crossrun.top/</id>
   
   <author>
@@ -20,16 +20,16 @@
     <link href="http://crossrun.top/2018/03/29/AndroidStudio%E4%B8%AD%E5%8F%98%E9%87%8F%E5%90%AB%E6%9C%89%E4%B8%8B%E5%88%92%E7%BA%BF%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8/"/>
     <id>http://crossrun.top/2018/03/29/AndroidStudio中变量含有下划线显示不正常/</id>
     <published>2018-03-29T01:54:39.000Z</published>
-    <updated>2018-03-29T02:08:56.558Z</updated>
+    <updated>2018-03-29T02:10:18.147Z</updated>
     
-    <content type="html">&lt;p&gt;在更新Android Studio 3.1 之后 出现了&lt;br&gt;&lt;img src=&quot;../pic/20180328104859.png&quot; alt=&quot;20180328104859.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当变量含有下划线的时候，显示不正常，这样修改就可以了&lt;br&gt;&lt;img src=&quot;../pic/20180329100030.png&quot; alt=&quot;20180329100030.png&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;在更新Android Studio 3.1 之后 出现了&lt;br&gt;&lt;img src=&quot;/pic/20180328104859.png&quot; alt=&quot;20180328104859.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当变量含有下划线的时候，显示不正常，这样修改就可以了&lt;br&gt;&lt;img src=&quot;/pic/20180329100030.png&quot; alt=&quot;20180329100030.png&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;在更新Android Studio 3.1 之后 出现了&lt;br&gt;&lt;img src=&quot;../pic/20180328104859.png&quot; alt=&quot;20180328104859.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;当变量含有下划线的时候，显示不正常，这样修改就可以了&lt;br&gt;&lt;img 
+      &lt;p&gt;在更新Android Studio 3.1 之后 出现了&lt;br&gt;&lt;img src=&quot;/pic/20180328104859.png&quot; alt=&quot;20180328104859.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当变量含有下划线的时候，显示不正常，这样修改就可以了&lt;br&gt;&lt;img sr
     
     </summary>
     
